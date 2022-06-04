@@ -1,12 +1,13 @@
 package hello.core.discount;
 
+import hello.core.annotation.MainDiscountPolicy;
 import hello.core.member.Grade;
 import hello.core.member.Member;
-import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 @Component
-@Primary // 타입이 동일한 빈이 여러 개 일 때 우선적으로 사용
+//@Qualifier("mainDiscountPolicy")
+@MainDiscountPolicy // @Qualifier 사용할 때의 오류(예: 오타)를 방지 --> 애노테이션 직접 정의
 public class RateDiscountPolicy implements DiscountPolicy {
 
     private int discountPercent = 10;
